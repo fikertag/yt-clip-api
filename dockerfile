@@ -1,4 +1,3 @@
-# Base image with Node.js and Python (needed for yt-dlp)
 FROM node:18-bookworm-slim
 
 # Install system dependencies
@@ -13,13 +12,15 @@ RUN apt-get update && \
 # Install yt-dlp
 RUN pip3 install --no-cache-dir yt-dlp
 
-# Create app directory
+# Install TypeScript globally
+RUN npm install -g typescript
+
 WORKDIR /app
 
-# Copy package files first for better caching
+# Copy package files
 COPY package*.json ./
 
-# Install Node dependencies
+# Install dependencies
 RUN npm install
 
 # Copy all source files
@@ -27,9 +28,6 @@ COPY . .
 
 # Build TypeScript
 RUN npm run build
-
-# Create clips directory
-RUN mkdir -p clips
 
 # Runtime command
 CMD ["node", "dist/index.js"]
