@@ -1,12 +1,19 @@
 #!/bin/bash
 
-echo "Installing ffmpeg and yt-dlp..."
+echo "Downloading yt-dlp and ffmpeg..."
 
-# Update and install ffmpeg
-apt-get update && apt-get install -y ffmpeg
+# Create bin directory
+mkdir -p bin
+cd bin
 
-# Install pip if missing
-apt-get install -y python3-pip
+# Download yt-dlp
+curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o yt-dlp
+chmod +x yt-dlp
 
-# Install yt-dlp using pip
-pip3 install -U yt-dlp
+# Download ffmpeg static binary
+curl -L https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-i686-static.tar.xz -o ffmpeg.tar.xz
+tar -xf ffmpeg.tar.xz --strip-components=1
+chmod +x ffmpeg
+
+cd ..
+echo "Tools downloaded to ./bin"
