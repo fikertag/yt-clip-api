@@ -3,8 +3,10 @@ import path from "path";
 import fs from "fs";
 import { exec } from "child_process";
 import { v4 as uuidv4 } from "uuid";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 // Helper function with better error handling
@@ -61,7 +63,7 @@ app.post("/api/clip", (req: Request, res: Response, next: NextFunction) => {
     }
   })();
 });
-const PORT = process.env.PORT || 3000;
+const PORT = 8000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
