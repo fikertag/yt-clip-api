@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: yt-clip-api
+    env: node
+    buildCommand: ./install-tools.sh && npm install
+    startCommand: npm run start
+    plan: free
