@@ -2,10 +2,6 @@ services:
   - type: web
     name: yt-clip-api
     env: node
-    buildCommand: |
-      chmod +x install-tools.sh
-      ./install-tools.sh
-      npm install
-      npm run build
-    startCommand: PATH=$PATH:$PWD/bin node dist/index.js
+    buildCommand: npm install
+    startCommand: npm start
     plan: free
