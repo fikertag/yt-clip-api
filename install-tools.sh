@@ -2,7 +2,7 @@
 
 echo "Downloading yt-dlp and ffmpeg..."
 
-# Create bin directory at the root of the project
+# Create bin directory
 mkdir -p bin
 cd bin
 
@@ -14,9 +14,6 @@ chmod +x yt-dlp
 curl -L https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-i686-static.tar.xz -o ffmpeg.tar.xz
 tar -xf ffmpeg.tar.xz --strip-components=1
 chmod +x ffmpeg
-
-# Clean up .tar.xz file
-rm -f ffmpeg.tar.xz
 
 cd ..
 echo "Tools downloaded to ./bin"
