@@ -9,6 +9,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+console.log(
+  "Listing bin directory:",
+  fs.readdirSync(path.join(__dirname, "bin"))
+);
+
 // Helper function with better error handling
 function runCommand(cmd: string): Promise<void> {
   return new Promise((resolve, reject) => {
