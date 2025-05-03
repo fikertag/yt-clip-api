@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.ts",
     "build": "tsc",
-    "start": "PATH=$PATH:./bin node dist/index.js",
-    "postinstall": "./install-tools.sh"
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
