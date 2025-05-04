@@ -34,7 +34,7 @@ app.post("/api/clip", (req: Request, res: Response, next: NextFunction) => {
       }
 
       const id = uuidv4();
-      const outputDir = path.join(__dirname, "../clips");
+      const outputDir = "/tmp/clips";
       const fullVideoPath = path.join(outputDir, `${id}_full.mp4`);
       const clipPath = path.join(outputDir, `${id}_clip.mp4`);
 

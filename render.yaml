@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: yt-clip-api
-    dockerfile: Dockerfile
-    plan: free
-    envVars:
-      - key: NODE_ENV
-        value: production
