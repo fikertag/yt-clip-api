@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "tsc",
+    "build": "tsc && ls -la dist/",
     "postinstall": "mkdir -p bin && curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o bin/yt-dlp && chmod a+rx bin/yt-dlp && curl -L https://github.com/eugeneware/ffmpeg-static/releases/download/b5.1.1/linux-x64 -o bin/ffmpeg && chmod a+rx bin/ffmpeg",
-    "debug": "ls -la && ls -la dist/"
+    "debug": "echo 'Checking files...' && ls -la && echo 'Checking dist...' && ls -la dist/"
   },
   "keywords": [],
   "author": "",
