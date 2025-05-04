@@ -42,11 +42,8 @@ app.post("/api/clip", (req: Request, res: Response, next: NextFunction) => {
       fs.mkdirSync(outputDir, { recursive: true });
 
       await runCommand(
-        `${path.join(
-          BIN_DIR,
-          "yt-dlp"
-        )} -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" -o "${fullVideoPath}" "${url}"`
-      );
+       `${path.join(BIN_DIR, "yt-dlp")} --cookies cookies.txt -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" -o "${fullVideoPath}" "${url}"`
+     );
 
       await runCommand(
         `${path.join(
